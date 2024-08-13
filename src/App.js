@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
+import { Home, Moon, Settings } from "lucide-react";
+import Navbar from "./components/navbar";
+import Hero from "./components/Hero";
+import Layout from "./components/layout";
+import { useState } from "react";
+import Videos from "./components/Videos";
 
 function App() {
+  const handleSearch = (query) => {
+    console.log(query);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Layout>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+              <div className="heroWrapper">
+                <Hero />
+              </div>
+                <Videos/>
+              </>
+            }
+          />
+        </Routes>
+      </Layout>
     </div>
   );
 }
